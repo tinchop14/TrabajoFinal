@@ -46,15 +46,15 @@ public class Tp9Activity extends AppCompatActivity {
 
         playQuestionSound(question);
 
-        generateOptionsArray();
+        ArrayList<String> options = generateOptionsArray();
 
-        configImages(question);
+        configImages(options);
 
 
 
     }
 
-    private void generateOptionsArray() {
+    private ArrayList<String> generateOptionsArray() {
 
         ArrayList<String> aoptions = new ArrayList<>();
 
@@ -175,9 +175,41 @@ public class Tp9Activity extends AppCompatActivity {
             Log.d("TAGGG", element);
         }
 
+        return aoptions;
+
     }
 
-    private void configImages(String option) {
+    private void configImages(ArrayList<String> options) {
+
+        int i = 1;
+        ImageView imgVw = null;
+
+        Iterator itr = options.iterator();
+
+        while (itr.hasNext()) {
+
+            switch (i) {
+                case 1:
+                    imgVw = imageViewOp1;
+                    break;
+                case 2:
+                    imgVw = imageViewOp2;
+                    break;
+                case 3:
+                    imgVw = imageViewOp3;
+                    break;
+                case 4:
+                    imgVw = imageViewOp4;
+                    break;
+                case 5:
+                    imgVw = imageViewOp5;
+                    break;
+
+            }
+
+
+        }
+
 
     }
 
