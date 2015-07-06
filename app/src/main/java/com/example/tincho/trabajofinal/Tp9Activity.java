@@ -3,13 +3,13 @@ package com.example.tincho.trabajofinal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 
@@ -21,7 +21,7 @@ public class Tp9Activity extends AppCompatActivity {
     private ImageView imageViewOp4;
     private ImageView imageViewOp5;
     private ImageView imageViewOp1;
-    private String option;
+    private String question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,97 @@ public class Tp9Activity extends AppCompatActivity {
         imageViewOp4 = (ImageView) findViewById(R.id.imageL4);
         imageViewOp5 = (ImageView) findViewById(R.id.imageL5);
 
-        option = generateQuestion();
+        question = generateQuestion();
 
+
+        configImages(question);
+        playQuestionSound(question);
+
+
+    }
+
+    private void generateOptionsArray() {
+
+        ArrayList<String> aoptions = null;
+
+
+        //opciones B,D y tres aleatorias
+        if (question.startsWith("b")) {
+
+
+        }
+        //opciones C,U y tres aleatorias
+        if (question.startsWith("c")) {
+
+        }
+        //opciones D,P y tres aleatorias
+        if (question.startsWith("d")) {
+
+        }
+        //opciones F,E y tres aleatorias
+        if (question.startsWith("f")) {
+
+        }
+        //opciones G,O y tres aleatorias
+        if (question.startsWith("g")) {
+
+        }
+        //opciones J,L y tres aleatorias
+        if (question.startsWith("j")) {
+
+        }
+        //opciones L,J y tres aleatorias
+        if (question.startsWith("l")) {
+
+        }
+        //opciones M,A y tres aleatorias
+        if (question.startsWith("m")) {
+
+        }
+        //opciones N,M y tres aleatorias
+        if (question.startsWith("n")) {
+
+        }
+        //opciones P,D y tres aleatorias
+        if (question.startsWith("p")) {
+
+        }
+        //opciones Q,O y tres aleatorias
+        if (question.startsWith("q")) {
+
+        }
+        //opciones R,P y tres aleatorias
+        if (question.startsWith("r")) {
+
+        }
+        //opciones S,Z y tres aleatorias
+        if (question.startsWith("s")) {
+
+        }
+        //opciones T,L y tres aleatorias
+        if (question.startsWith("t")) {
+
+        }
+        //opciones V,U y tres aleatorias
+        if (question.startsWith("v")) {
+
+        }
+        //opciones Y,V y tres aleatorias
+        if (question.startsWith("y")) {
+
+        }
+        //opciones Z,S y tres aleatorias
+        if (question.startsWith("z")) {
+
+        }
+
+    }
+
+    private void configImages(String option) {
+
+    }
+
+    private void playQuestionSound(String option) {
 
 
     }
@@ -48,7 +137,7 @@ public class Tp9Activity extends AppCompatActivity {
                 , "dado", "dedo", "domino", "foca", "fuego", "gato", "gusano", "jirafa", "lapiz",
                 "leche", "loro", "luna", "mano", "mesa", "mono", "muneca", "nube", "pato", "pera",
                 "puerta", "raton", "reloj", "rueda", "silla", "tenedor", "tijera", "toro", "vaso",
-                "Queso", "yoyo", "zapato", "zorro"};
+                "queso", "yoyo", "zapato", "zorro"};
 
         ArrayList<String> objects = new ArrayList<>();
         objects.addAll(Arrays.asList(list));
