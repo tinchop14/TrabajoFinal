@@ -181,12 +181,129 @@ public class Tp9Activity extends AppCompatActivity {
 
     private void configImages(ArrayList<String> options) {
 
+
+        //Primero configuro la imagen del objeto:
+        if (question.equals("bicicleta")) {
+            imageViewObject.setImageResource(R.drawable.bicicleta);
+        }
+        if (question.equals("botellas")) {
+            imageViewObject.setImageResource(R.drawable.botellas);
+        }
+        if (question.equals("burro")) {
+            imageViewObject.setImageResource(R.drawable.burro);
+        }
+        if (question.equals("casa")) {
+            imageViewObject.setImageResource(R.drawable.casa);
+        }
+        if (question.equals("cepillo")) {
+            imageViewObject.setImageResource(R.drawable.cepillo);
+        }
+        if (question.equals("cuna")) {
+            imageViewObject.setImageResource(R.drawable.cuna);
+        }
+        if (question.equals("dado")) {
+            imageViewObject.setImageResource(R.drawable.dado);
+        }
+        if (question.equals("dedo")) {
+            imageViewObject.setImageResource(R.drawable.dedo);
+        }
+        if (question.equals("domino")) {
+            imageViewObject.setImageResource(R.drawable.domino);
+        }
+        if (question.equals("foca")) {
+            imageViewObject.setImageResource(R.drawable.foca);
+        }
+        if (question.equals("gato")) {
+            imageViewObject.setImageResource(R.drawable.gato);
+        }
+        if (question.equals("gusano")) {
+            imageViewObject.setImageResource(R.drawable.gusano);
+        }
+        if (question.equals("jirafa")) {
+            imageViewObject.setImageResource(R.drawable.jirafa);
+        }
+        if (question.equals("lapiz")) {
+            imageViewObject.setImageResource(R.drawable.lapiz);
+        }
+        if (question.equals("leche")) {
+            imageViewObject.setImageResource(R.drawable.leche);
+        }
+        if (question.equals("loro")) {
+            imageViewObject.setImageResource(R.drawable.loro);
+        }
+        if (question.equals("luna")) {
+            imageViewObject.setImageResource(R.drawable.luna);
+        }
+        if (question.equals("mano")) {
+            imageViewObject.setImageResource(R.drawable.mano);
+        }
+        if (question.equals("mesa")) {
+            imageViewObject.setImageResource(R.drawable.mesa);
+        }
+        if (question.equals("mono")) {
+            imageViewObject.setImageResource(R.drawable.mano);
+        }
+        if (question.equals("muneca")) {
+            imageViewObject.setImageResource(R.drawable.mueca);
+        }
+        if (question.equals("nube")) {
+            imageViewObject.setImageResource(R.drawable.nube);
+        }
+        if (question.equals("pato")) {
+            imageViewObject.setImageResource(R.drawable.pato);
+        }
+        if (question.equals("pera")) {
+            imageViewObject.setImageResource(R.drawable.pera);
+        }
+        if (question.equals("puerta")) {
+            imageViewObject.setImageResource(R.drawable.puerta);
+        }
+        if (question.equals("raton")) {
+            imageViewObject.setImageResource(R.drawable.raton);
+        }
+        if (question.equals("reloj")) {
+            imageViewObject.setImageResource(R.drawable.reloj);
+        }
+        if (question.equals("rueda")) {
+            imageViewObject.setImageResource(R.drawable.rueda);
+        }
+        if (question.equals("silla")) {
+            imageViewObject.setImageResource(R.drawable.silla);
+        }
+        if (question.equals("tenedor")) {
+            imageViewObject.setImageResource(R.drawable.tenedor);
+        }
+        if (question.equals("tijera")) {
+            imageViewObject.setImageResource(R.drawable.tijera);
+        }
+        if (question.equals("toro")) {
+            imageViewObject.setImageResource(R.drawable.toro);
+        }
+        if (question.equals("vaso")) {
+            imageViewObject.setImageResource(R.drawable.vaso);
+        }
+        if (question.equals("queso")) {
+            imageViewObject.setImageResource(R.drawable.queso);
+        }
+        if (question.equals("yoyo")) {
+            imageViewObject.setImageResource(R.drawable.yoyo);
+        }
+        if (question.equals("zapato")) {
+            imageViewObject.setImageResource(R.drawable.zapato);
+        }
+        if (question.equals("zorro")) {
+            imageViewObject.setImageResource(R.drawable.zorro);
+        }
+
+
+
         int i = 1;
         ImageView imgVw = null;
 
         Iterator itr = options.iterator();
 
         while (itr.hasNext()) {
+            String element = (String) itr.next();
 
             switch (i) {
                 case 1:
@@ -207,7 +324,86 @@ public class Tp9Activity extends AppCompatActivity {
 
             }
 
+            if (element.equals("a")) {
+                imgVw.setImageResource(R.drawable.a);
+            }
+            if (element.equals("b")) {
+                imgVw.setImageResource(R.drawable.bb);
+            }
+            if (element.equals("c")) {
+                imgVw.setImageResource(R.drawable.c);
+            }
+            if (element.equals("d")) {
+                imgVw.setImageResource(R.drawable.d);
+            }
+            if (element.equals("e")) {
+                imgVw.setImageResource(R.drawable.e);
+            }
+            if (element.equals("f")) {
+                imgVw.setImageResource(R.drawable.f);
+            }
+            if (element.equals("g")) {
+                imgVw.setImageResource(R.drawable.g);
+            }
+            if (element.equals("h")) {
+                imgVw.setImageResource(R.drawable.h);
+            }
+            if (element.equals("i")) {
+                imgVw.setImageResource(R.drawable.i);
+            }
+            if (element.equals("j")) {
+                imgVw.setImageResource(R.drawable.j);
+            }
+            if (element.equals("k")) {
+                imgVw.setImageResource(R.drawable.k);
+            }
+            if (element.equals("l")) {
+                imgVw.setImageResource(R.drawable.l);
+            }
+            if (element.equals("m")) {
+                imgVw.setImageResource(R.drawable.m);
+            }
+            if (element.equals("n")) {
+                imgVw.setImageResource(R.drawable.n);
+            }
+            if (element.equals("o")) {
+                imgVw.setImageResource(R.drawable.o);
+            }
+            if (element.equals("p")) {
+                imgVw.setImageResource(R.drawable.p);
+            }
+            if (element.equals("q")) {
+                imgVw.setImageResource(R.drawable.q);
+            }
+            if (element.equals("r")) {
+                imgVw.setImageResource(R.drawable.r);
+            }
+            if (element.equals("s")) {
+                imgVw.setImageResource(R.drawable.s);
+            }
+            if (element.equals("t")) {
+                imgVw.setImageResource(R.drawable.t);
+            }
+            if (element.equals("u")) {
+                imgVw.setImageResource(R.drawable.u);
+            }
+            if (element.equals("v")) {
+                imgVw.setImageResource(R.drawable.v);
+            }
+            if (element.equals("w")) {
+                imgVw.setImageResource(R.drawable.w);
+            }
+            if (element.equals("x")) {
+                imgVw.setImageResource(R.drawable.x);
+            }
+            if (element.equals("y")) {
+                imgVw.setImageResource(R.drawable.y);
+            }
+            if (element.equals("z")) {
+                imgVw.setImageResource(R.drawable.z);
+            }
 
+            i = i + 1;
         }
 
 
