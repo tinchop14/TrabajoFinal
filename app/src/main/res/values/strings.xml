@@ -2,5 +2,7 @@
     <string name="app_name">TrabajoFinal</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_tp5">Tp 5</string>
+    <string name="title_activity_actividad_tp9">Tp9 Activity</string>
+    <string name="action_tp9">Tp 9</string>
 </resources>
