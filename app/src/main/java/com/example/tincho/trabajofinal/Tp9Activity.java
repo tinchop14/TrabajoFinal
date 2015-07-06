@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Random;
 
 
@@ -36,8 +38,11 @@ public class Tp9Activity extends AppCompatActivity {
         imageViewOp4 = (ImageView) findViewById(R.id.imageL4);
         imageViewOp5 = (ImageView) findViewById(R.id.imageL5);
 
+
         question = generateQuestion();
 
+        question = "b";
+        generateOptionsArray();
 
         configImages(question);
         playQuestionSound(question);
@@ -47,12 +52,26 @@ public class Tp9Activity extends AppCompatActivity {
 
     private void generateOptionsArray() {
 
-        ArrayList<String> aoptions = null;
+        ArrayList<String> aoptions = new ArrayList<>();
+
+        Random r = new Random();
+
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 
         //opciones B,D y tres aleatorias
         if (question.startsWith("b")) {
+            aoptions.add("b");
+            aoptions.add("d");
 
+            String e1 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+            aoptions.add(e1);
+
+            String e2 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+            aoptions.add(e2);
+
+            String e3 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+            aoptions.add(e3);
 
         }
         //opciones C,U y tres aleatorias
@@ -118,6 +137,15 @@ public class Tp9Activity extends AppCompatActivity {
         //opciones Z,S y tres aleatorias
         if (question.startsWith("z")) {
 
+        }
+
+        Collections.shuffle(aoptions);
+
+        Iterator itr = aoptions.iterator();
+
+        while (itr.hasNext()) {
+            String element = (String) itr.next();
+            Log.d("TAGGG", element);
         }
 
     }

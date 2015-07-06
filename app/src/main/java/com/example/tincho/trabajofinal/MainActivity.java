@@ -588,7 +588,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mpCorrect = MediaPlayer.create(this, R.raw.bien);
-        mpWrong = MediaPlayer.create(this, R.raw.error);
+        mpWrong = MediaPlayer.create(this, R.raw.error2);
         playQuestionSound(option);
 
     }
