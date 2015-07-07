@@ -1,12 +1,16 @@
 package com.example.tincho.trabajofinal;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -27,6 +31,9 @@ public class Tp9Activity extends AppCompatActivity {
     private String question;
     private MediaPlayer mpCorrectChar;
     private MediaPlayer mpObject;
+    private MediaPlayer mpCorrectAnswer;
+    private MediaPlayer mpWrongAnswer;
+    private int correctAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,78 @@ public class Tp9Activity extends AppCompatActivity {
         imageViewOp5 = (ImageView) findViewById(R.id.imageL5);
 
 
+        imageViewOp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 1) {
+                    //Es correcta
+                    Log.d("TAGGG", "CORRECTA");
+                    playCorrectAnswer();
+                    imageViewOp1.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    startAgain();
+
+                } else {
+                    playWrongAnswer();
+                }
+            }
+        });
+        imageViewOp2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 2) {
+                    //Es correcta
+                    Log.d("TAGGG", "CORRECTA");
+                    playCorrectAnswer();
+                    imageViewOp2.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    startAgain();
+                } else {
+                    playWrongAnswer();
+                }
+            }
+        });
+        imageViewOp3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 3) {
+                    //Es correcta
+                    Log.d("TAGGG", "CORRECTA");
+                    playCorrectAnswer();
+                    imageViewOp3.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    startAgain();
+                } else {
+                    playWrongAnswer();
+                }
+            }
+        });
+        imageViewOp4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 4) {
+                    //Es correcta
+                    Log.d("TAGGG", "CORRECTA");
+                    playCorrectAnswer();
+                    imageViewOp4.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    startAgain();
+                } else {
+                    playWrongAnswer();
+                }
+            }
+        });
+        imageViewOp5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (correctAnswer == 5) {
+                    //Es correcta
+                    Log.d("TAGGG", "CORRECTA");
+                    playCorrectAnswer();
+                    imageViewOp5.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    startAgain();
+                } else {
+                    playWrongAnswer();
+                }
+            }
+        });
+
         question = generateQuestion();
 
         playQuestionSound(question);
@@ -51,8 +130,8 @@ public class Tp9Activity extends AppCompatActivity {
         configImages(options);
 
 
-
     }
+
 
     private ArrayList<String> generateOptionsArray() {
 
@@ -152,14 +231,25 @@ public class Tp9Activity extends AppCompatActivity {
 
 
         //Agrego las tres opciones aleatorias------------------------------------
+        //y si ya están contenidas en el array las vuelvo a generar
+        //para que no se repitan
         String e1 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
-        aoptions.add(e1);
-
         String e2 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
-        aoptions.add(e2);
-
         String e3 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+
+        while (aoptions.contains(e1)) {
+            e1 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+        }
+        aoptions.add(e1);
+        while (aoptions.contains(e2)) {
+            e2 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+        }
+        aoptions.add(e2);
+        while (aoptions.contains(e3)) {
+            e1 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+        }
         aoptions.add(e3);
+
         //-----------------------------------------------------------------------
 
 
@@ -167,7 +257,11 @@ public class Tp9Activity extends AppCompatActivity {
         Collections.shuffle(aoptions);
 
 
-        Log.d("TAGGG", "La letra correcta es:" + question);
+        //Busco la ubicación de la letra correcta y le sumo 1
+        correctAnswer = aoptions.indexOf(question.substring(0, 1)) + 1;
+
+        Log.d("TAGGG", "El objeto es:" + question);
+        Log.d("TAGGG", "La correcta es:" + correctAnswer);
         //LOG
         Iterator itr = aoptions.iterator();
         while (itr.hasNext()) {
@@ -213,6 +307,9 @@ public class Tp9Activity extends AppCompatActivity {
         if (question.equals("foca")) {
             imageViewObject.setImageResource(R.drawable.foca);
         }
+        if (question.equals("fuego")) {
+            imageViewObject.setImageResource(R.drawable.fuego);
+        }
         if (question.equals("gato")) {
             imageViewObject.setImageResource(R.drawable.gato);
         }
@@ -241,7 +338,7 @@ public class Tp9Activity extends AppCompatActivity {
             imageViewObject.setImageResource(R.drawable.mesa);
         }
         if (question.equals("mono")) {
-            imageViewObject.setImageResource(R.drawable.mano);
+            imageViewObject.setImageResource(R.drawable.mono);
         }
         if (question.equals("muneca")) {
             imageViewObject.setImageResource(R.drawable.mueca);
@@ -456,6 +553,9 @@ public class Tp9Activity extends AppCompatActivity {
         if (question.equals("foca")) {
             mpObject = MediaPlayer.create(this, R.raw.foca);
         }
+        if (question.equals("fuego")) {
+            mpObject = MediaPlayer.create(this, R.raw.fuego);
+        }
         if (question.equals("gato")) {
             mpObject = MediaPlayer.create(this, R.raw.gato);
         }
@@ -558,6 +658,63 @@ public class Tp9Activity extends AppCompatActivity {
 
     }
 
+    private void startAgain() {
+
+        //Espero 3 segundos------------------
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                //Reseteo los colores
+                imageViewOp1.setColorFilter(null);
+                imageViewOp2.setColorFilter(null);
+                imageViewOp3.setColorFilter(null);
+                imageViewOp4.setColorFilter(null);
+                imageViewOp5.setColorFilter(null);
+
+                //Recargo los componentes
+                question = generateQuestion();
+
+                playQuestionSound(question);
+
+                ArrayList<String> options = generateOptionsArray();
+
+                configImages(options);
+
+            }
+        };
+
+        Handler h = new Handler();
+        h.postDelayed(r, 3000);
+        //-----------------------------------
+
+
+    }
+
+    private void playCorrectAnswer() {
+
+
+        if (mpCorrectAnswer == null) {
+            mpCorrectAnswer = MediaPlayer.create(this, R.raw.bien);
+        }
+        if (mpCorrectAnswer.isPlaying()) {
+            mpCorrectAnswer.seekTo(0);
+        } else {
+            mpCorrectAnswer.start();
+        }
+    }
+
+    private void playWrongAnswer() {
+        if (mpWrongAnswer == null) {
+            mpWrongAnswer = MediaPlayer.create(this, R.raw.error2);
+        }
+        if (mpWrongAnswer.isPlaying()) {
+            mpWrongAnswer.seekTo(0);
+        } else {
+            mpWrongAnswer.start();
+        }
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -583,5 +740,60 @@ public class Tp9Activity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mpCorrectAnswer != null) {
+            mpCorrectAnswer.release();
+            mpCorrectAnswer = null;
+        }
+        if (mpWrongAnswer != null) {
+            mpWrongAnswer.release();
+            mpWrongAnswer = null;
+        }
+        if (mpObject != null) {
+            mpObject.release();
+            mpObject = null;
+        }
+
+        if (mpCorrectChar != null) {
+            mpCorrectChar.release();
+            mpCorrectChar = null;
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        playQuestionSound(question);
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mpCorrectAnswer != null) {
+            mpCorrectAnswer.release();
+            mpCorrectAnswer = null;
+        }
+        if (mpWrongAnswer != null) {
+            mpWrongAnswer.release();
+            mpWrongAnswer = null;
+        }
+        if (mpObject != null) {
+            mpObject.release();
+            mpObject = null;
+        }
+
+        if (mpCorrectChar != null) {
+            mpCorrectChar.release();
+            mpCorrectChar = null;
+        }
+
+
     }
 }

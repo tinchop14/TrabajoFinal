@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                             mpCorrect.start();
                             mpCorrectNumber.start();
 
-                            //Espero 2 segundos------------------
+                            //Espero 3 segundos------------------
                             Runnable r = new Runnable() {
                                 @Override
                                 public void run() {
