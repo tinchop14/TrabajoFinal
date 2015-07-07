@@ -550,119 +550,121 @@ public class Tp9Activity extends AppCompatActivity {
             mpObject = null;
         }
 
-        if (question.equals("bicicleta")) {
-            mpObject = MediaPlayer.create(this, R.raw.bicicleta);
-        }
-        if (question.equals("botellas")) {
-            mpObject = MediaPlayer.create(this, R.raw.botellas);
-        }
-        if (question.equals("burro")) {
-            mpObject = MediaPlayer.create(this, R.raw.burro);
-        }
-        if (question.equals("casa")) {
-            mpObject = MediaPlayer.create(this, R.raw.casa);
-        }
-        if (question.equals("cepillo")) {
-            mpObject = MediaPlayer.create(this, R.raw.cepillo);
-        }
-        if (question.equals("cuna")) {
-            mpObject = MediaPlayer.create(this, R.raw.cuna);
-        }
-        if (question.equals("dado")) {
-            mpObject = MediaPlayer.create(this, R.raw.dado);
-        }
-        if (question.equals("dedo")) {
-            mpObject = MediaPlayer.create(this, R.raw.dedo);
-        }
-        if (question.equals("domino")) {
-            mpObject = MediaPlayer.create(this, R.raw.domino);
-        }
-        if (question.equals("foca")) {
-            mpObject = MediaPlayer.create(this, R.raw.foca);
-        }
-        if (question.equals("fuego")) {
-            mpObject = MediaPlayer.create(this, R.raw.fuego);
-        }
-        if (question.equals("gato")) {
-            mpObject = MediaPlayer.create(this, R.raw.gato);
-        }
-        if (question.equals("gusano")) {
-            mpObject = MediaPlayer.create(this, R.raw.gusano);
-        }
-        if (question.equals("jirafa")) {
-            mpObject = MediaPlayer.create(this, R.raw.jirafa);
-        }
-        if (question.equals("lapiz")) {
-            mpObject = MediaPlayer.create(this, R.raw.lapiz);
-        }
-        if (question.equals("leche")) {
-            mpObject = MediaPlayer.create(this, R.raw.leche);
-        }
-        if (question.equals("loro")) {
-            mpObject = MediaPlayer.create(this, R.raw.loro);
-        }
-        if (question.equals("luna")) {
-            mpObject = MediaPlayer.create(this, R.raw.luna);
-        }
-        if (question.equals("mano")) {
-            mpObject = MediaPlayer.create(this, R.raw.mano);
-        }
-        if (question.equals("mesa")) {
-            mpObject = MediaPlayer.create(this, R.raw.mesa);
-        }
-        if (question.equals("mono")) {
-            mpObject = MediaPlayer.create(this, R.raw.mono);
-        }
-        if (question.equals("muneca")) {
-            mpObject = MediaPlayer.create(this, R.raw.muneca);
-        }
-        if (question.equals("nube")) {
-            mpObject = MediaPlayer.create(this, R.raw.nube);
-        }
-        if (question.equals("pato")) {
-            mpObject = MediaPlayer.create(this, R.raw.pato);
-        }
-        if (question.equals("pera")) {
-            mpObject = MediaPlayer.create(this, R.raw.pera);
-        }
-        if (question.equals("puerta")) {
-            mpObject = MediaPlayer.create(this, R.raw.puerta);
-        }
-        if (question.equals("raton")) {
-            mpObject = MediaPlayer.create(this, R.raw.raton);
-        }
-        if (question.equals("reloj")) {
-            mpObject = MediaPlayer.create(this, R.raw.reloj);
-        }
-        if (question.equals("rueda")) {
-            mpObject = MediaPlayer.create(this, R.raw.rueda);
-        }
-        if (question.equals("silla")) {
-            mpObject = MediaPlayer.create(this, R.raw.silla);
-        }
-        if (question.equals("tenedor")) {
-            mpObject = MediaPlayer.create(this, R.raw.tenedor);
-        }
-        if (question.equals("tijera")) {
-            mpObject = MediaPlayer.create(this, R.raw.tijera);
-        }
-        if (question.equals("toro")) {
-            mpObject = MediaPlayer.create(this, R.raw.toro);
-        }
-        if (question.equals("vaso")) {
-            mpObject = MediaPlayer.create(this, R.raw.vaso);
-        }
-        if (question.equals("queso")) {
-            mpObject = MediaPlayer.create(this, R.raw.queso);
-        }
-        if (question.equals("yoyo")) {
-            mpObject = MediaPlayer.create(this, R.raw.yoyo);
-        }
-        if (question.equals("zapato")) {
-            mpObject = MediaPlayer.create(this, R.raw.zapato);
-        }
-        if (question.equals("zorro")) {
-            mpObject = MediaPlayer.create(this, R.raw.zorro);
+        switch (question) {
+            case "bicicleta":
+                mpObject = MediaPlayer.create(this, R.raw.bicicleta);
+                break;
+            case "botellas":
+                mpObject = MediaPlayer.create(this, R.raw.botellas);
+                break;
+            case "burro":
+                mpObject = MediaPlayer.create(this, R.raw.burro);
+                break;
+            case "casa":
+                mpObject = MediaPlayer.create(this, R.raw.casa);
+                break;
+            case "cepillo":
+                mpObject = MediaPlayer.create(this, R.raw.cepillo);
+                break;
+            case "cuna":
+                mpObject = MediaPlayer.create(this, R.raw.cuna);
+                break;
+            case "dado":
+                mpObject = MediaPlayer.create(this, R.raw.dado);
+                break;
+            case "dedo":
+                mpObject = MediaPlayer.create(this, R.raw.dedo);
+                break;
+            case "domino":
+                mpObject = MediaPlayer.create(this, R.raw.domino);
+                break;
+            case "foca":
+                mpObject = MediaPlayer.create(this, R.raw.foca);
+                break;
+            case "fuego":
+                mpObject = MediaPlayer.create(this, R.raw.fuego);
+                break;
+            case "gato":
+                mpObject = MediaPlayer.create(this, R.raw.gato);
+                break;
+            case "gusano":
+                mpObject = MediaPlayer.create(this, R.raw.gusano);
+                break;
+            case "jirafa":
+                mpObject = MediaPlayer.create(this, R.raw.jirafa);
+                break;
+            case "lapiz":
+                mpObject = MediaPlayer.create(this, R.raw.lapiz);
+                break;
+            case "leche":
+                mpObject = MediaPlayer.create(this, R.raw.leche);
+                break;
+            case "loro":
+                mpObject = MediaPlayer.create(this, R.raw.loro);
+                break;
+            case "luna":
+                mpObject = MediaPlayer.create(this, R.raw.luna);
+                break;
+            case "mano":
+                mpObject = MediaPlayer.create(this, R.raw.mano);
+                break;
+            case "mesa":
+                mpObject = MediaPlayer.create(this, R.raw.mesa);
+                break;
+            case "mono":
+                mpObject = MediaPlayer.create(this, R.raw.mono);
+                break;
+            case "muneca":
+                mpObject = MediaPlayer.create(this, R.raw.muneca);
+                break;
+            case "nube":
+                mpObject = MediaPlayer.create(this, R.raw.nube);
+                break;
+            case "pato":
+                mpObject = MediaPlayer.create(this, R.raw.pato);
+                break;
+            case "pera":
+                mpObject = MediaPlayer.create(this, R.raw.pera);
+                break;
+            case "puerta":
+                mpObject = MediaPlayer.create(this, R.raw.puerta);
+                break;
+            case "raton":
+                mpObject = MediaPlayer.create(this, R.raw.raton);
+                break;
+            case "reloj":
+                mpObject = MediaPlayer.create(this, R.raw.reloj);
+                break;
+            case "rueda":
+                mpObject = MediaPlayer.create(this, R.raw.rueda);
+                break;
+            case "silla":
+                mpObject = MediaPlayer.create(this, R.raw.silla);
+                break;
+            case "tenedor":
+                mpObject = MediaPlayer.create(this, R.raw.tenedor);
+                break;
+            case "tijera":
+                mpObject = MediaPlayer.create(this, R.raw.tijera);
+                break;
+            case "toro":
+                mpObject = MediaPlayer.create(this, R.raw.toro);
+                break;
+            case "vaso":
+                mpObject = MediaPlayer.create(this, R.raw.vaso);
+                break;
+            case "queso":
+                mpObject = MediaPlayer.create(this, R.raw.queso);
+                break;
+            case "yoyo":
+                mpObject = MediaPlayer.create(this, R.raw.yoyo);
+                break;
+            case "zapato":
+                mpObject = MediaPlayer.create(this, R.raw.zapato);
+                break;
+            case "zorro":
+                mpObject = MediaPlayer.create(this, R.raw.zorro);
+                break;
         }
 
         try {
