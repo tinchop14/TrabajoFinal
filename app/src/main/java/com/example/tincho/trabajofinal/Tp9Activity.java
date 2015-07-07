@@ -34,6 +34,7 @@ public class Tp9Activity extends AppCompatActivity {
     private MediaPlayer mpCorrectAnswer;
     private MediaPlayer mpWrongAnswer;
     private int correctAnswer;
+    private ArrayList<String> objects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,14 @@ public class Tp9Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 1) {
                     //Es correcta
+                    //No recibo más clicks porque más adelante voy a hacer una espera
+                    //de 3 segundos
+                    cancelClicks();
+                    //----------------------------------------------------------------
+
                     Log.d("TAGGG", "CORRECTA");
-                    playCorrectAnswer();
                     imageViewOp1.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    playCorrectAnswer();
                     startAgain();
 
                 } else {
@@ -69,10 +75,12 @@ public class Tp9Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 2) {
                     //Es correcta
+                    cancelClicks();
                     Log.d("TAGGG", "CORRECTA");
-                    playCorrectAnswer();
                     imageViewOp2.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    playCorrectAnswer();
                     startAgain();
+
                 } else {
                     playWrongAnswer();
                 }
@@ -83,10 +91,12 @@ public class Tp9Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 3) {
                     //Es correcta
+                    cancelClicks();
                     Log.d("TAGGG", "CORRECTA");
-                    playCorrectAnswer();
                     imageViewOp3.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    playCorrectAnswer();
                     startAgain();
+
                 } else {
                     playWrongAnswer();
                 }
@@ -97,10 +107,12 @@ public class Tp9Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 4) {
                     //Es correcta
+                    cancelClicks();
                     Log.d("TAGGG", "CORRECTA");
-                    playCorrectAnswer();
                     imageViewOp4.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    playCorrectAnswer();
                     startAgain();
+
                 } else {
                     playWrongAnswer();
                 }
@@ -111,10 +123,12 @@ public class Tp9Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (correctAnswer == 5) {
                     //Es correcta
+                    cancelClicks();
                     Log.d("TAGGG", "CORRECTA");
-                    playCorrectAnswer();
                     imageViewOp5.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                    playCorrectAnswer();
                     startAgain();
+
                 } else {
                     playWrongAnswer();
                 }
@@ -122,14 +136,19 @@ public class Tp9Activity extends AppCompatActivity {
         });
 
         question = generateQuestion();
-
-        playQuestionSound(question);
-
         ArrayList<String> options = generateOptionsArray();
-
+        playQuestionSound(question);
         configImages(options);
 
 
+    }
+
+    private void cancelClicks() {
+        imageViewOp1.setClickable(false);
+        imageViewOp2.setClickable(false);
+        imageViewOp3.setClickable(false);
+        imageViewOp4.setClickable(false);
+        imageViewOp5.setClickable(false);
     }
 
 
@@ -141,90 +160,111 @@ public class Tp9Activity extends AppCompatActivity {
 
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+        //Reutilizo esta parte de código para generar el audio de la letra correcta
+        if (mpCorrectChar != null) {
+            mpCorrectChar.release();
+            mpCorrectChar = null;
+        }
 
         //opciones B,D y tres aleatorias
         if (question.startsWith("b")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.b);
             aoptions.add("b");
             aoptions.add("d");
-
         }
         //opciones C,U y tres aleatorias
-        if (question.startsWith("c")) {
+        else if (question.startsWith("c")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.c);
             aoptions.add("c");
             aoptions.add("u");
         }
         //opciones D,P y tres aleatorias
-        if (question.startsWith("d")) {
+        else if (question.startsWith("d")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.d);
             aoptions.add("d");
             aoptions.add("p");
         }
         //opciones F,E y tres aleatorias
-        if (question.startsWith("f")) {
+        else if (question.startsWith("f")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.f);
             aoptions.add("f");
             aoptions.add("e");
         }
         //opciones G,O y tres aleatorias
-        if (question.startsWith("g")) {
+        else if (question.startsWith("g")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.g);
             aoptions.add("g");
             aoptions.add("o");
         }
         //opciones J,L y tres aleatorias
-        if (question.startsWith("j")) {
+        else if (question.startsWith("j")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.j);
             aoptions.add("j");
             aoptions.add("l");
         }
         //opciones L,J y tres aleatorias
-        if (question.startsWith("l")) {
+        else if (question.startsWith("l")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.l);
             aoptions.add("l");
             aoptions.add("j");
         }
         //opciones M,A y tres aleatorias
-        if (question.startsWith("m")) {
+        else if (question.startsWith("m")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.m);
             aoptions.add("m");
             aoptions.add("a");
         }
         //opciones N,M y tres aleatorias
-        if (question.startsWith("n")) {
+        else if (question.startsWith("n")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.n);
             aoptions.add("n");
             aoptions.add("m");
         }
         //opciones P,D y tres aleatorias
-        if (question.startsWith("p")) {
+        else if (question.startsWith("p")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.p);
             aoptions.add("p");
             aoptions.add("d");
         }
         //opciones Q,O y tres aleatorias
-        if (question.startsWith("q")) {
+        else if (question.startsWith("q")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.q);
             aoptions.add("q");
             aoptions.add("o");
         }
         //opciones R,P y tres aleatorias
-        if (question.startsWith("r")) {
+        else if (question.startsWith("r")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.r);
             aoptions.add("r");
             aoptions.add("p");
         }
         //opciones S,Z y tres aleatorias
-        if (question.startsWith("s")) {
+        else if (question.startsWith("s")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.s);
             aoptions.add("s");
             aoptions.add("z");
         }
         //opciones T,L y tres aleatorias
-        if (question.startsWith("t")) {
+        else if (question.startsWith("t")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.t);
             aoptions.add("t");
             aoptions.add("l");
         }
         //opciones V,U y tres aleatorias
-        if (question.startsWith("v")) {
+        else if (question.startsWith("v")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.v);
             aoptions.add("v");
             aoptions.add("u");
         }
         //opciones Y,V y tres aleatorias
-        if (question.startsWith("y")) {
+        else if (question.startsWith("y")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.y);
             aoptions.add("y");
             aoptions.add("v");
         }
         //opciones Z,S y tres aleatorias
-        if (question.startsWith("z")) {
+        else if (question.startsWith("z")) {
+            mpCorrectChar = MediaPlayer.create(this, R.raw.z);
             aoptions.add("z");
             aoptions.add("s");
         }
@@ -246,12 +286,11 @@ public class Tp9Activity extends AppCompatActivity {
         }
         aoptions.add(e2);
         while (aoptions.contains(e3)) {
-            e1 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
+            e3 = String.valueOf(alphabet.charAt(r.nextInt(alphabet.length())));
         }
         aoptions.add(e3);
 
         //-----------------------------------------------------------------------
-
 
 
         Collections.shuffle(aoptions);
@@ -263,9 +302,7 @@ public class Tp9Activity extends AppCompatActivity {
         Log.d("TAGGG", "El objeto es:" + question);
         Log.d("TAGGG", "La correcta es:" + correctAnswer);
         //LOG
-        Iterator itr = aoptions.iterator();
-        while (itr.hasNext()) {
-            String element = (String) itr.next();
+        for (String element : aoptions) {
             Log.d("TAGGG", element);
         }
 
@@ -277,130 +314,128 @@ public class Tp9Activity extends AppCompatActivity {
 
 
         //Primero configuro la imagen del objeto:
-        if (question.equals("bicicleta")) {
-            imageViewObject.setImageResource(R.drawable.bicicleta);
-        }
-        if (question.equals("botellas")) {
-            imageViewObject.setImageResource(R.drawable.botellas);
-        }
-        if (question.equals("burro")) {
-            imageViewObject.setImageResource(R.drawable.burro);
-        }
-        if (question.equals("casa")) {
-            imageViewObject.setImageResource(R.drawable.casa);
-        }
-        if (question.equals("cepillo")) {
-            imageViewObject.setImageResource(R.drawable.cepillo);
-        }
-        if (question.equals("cuna")) {
-            imageViewObject.setImageResource(R.drawable.cuna);
-        }
-        if (question.equals("dado")) {
-            imageViewObject.setImageResource(R.drawable.dado);
-        }
-        if (question.equals("dedo")) {
-            imageViewObject.setImageResource(R.drawable.dedo);
-        }
-        if (question.equals("domino")) {
-            imageViewObject.setImageResource(R.drawable.domino);
-        }
-        if (question.equals("foca")) {
-            imageViewObject.setImageResource(R.drawable.foca);
-        }
-        if (question.equals("fuego")) {
-            imageViewObject.setImageResource(R.drawable.fuego);
-        }
-        if (question.equals("gato")) {
-            imageViewObject.setImageResource(R.drawable.gato);
-        }
-        if (question.equals("gusano")) {
-            imageViewObject.setImageResource(R.drawable.gusano);
-        }
-        if (question.equals("jirafa")) {
-            imageViewObject.setImageResource(R.drawable.jirafa);
-        }
-        if (question.equals("lapiz")) {
-            imageViewObject.setImageResource(R.drawable.lapiz);
-        }
-        if (question.equals("leche")) {
-            imageViewObject.setImageResource(R.drawable.leche);
-        }
-        if (question.equals("loro")) {
-            imageViewObject.setImageResource(R.drawable.loro);
-        }
-        if (question.equals("luna")) {
-            imageViewObject.setImageResource(R.drawable.luna);
-        }
-        if (question.equals("mano")) {
-            imageViewObject.setImageResource(R.drawable.mano);
-        }
-        if (question.equals("mesa")) {
-            imageViewObject.setImageResource(R.drawable.mesa);
-        }
-        if (question.equals("mono")) {
-            imageViewObject.setImageResource(R.drawable.mono);
-        }
-        if (question.equals("muneca")) {
-            imageViewObject.setImageResource(R.drawable.mueca);
-        }
-        if (question.equals("nube")) {
-            imageViewObject.setImageResource(R.drawable.nube);
-        }
-        if (question.equals("pato")) {
-            imageViewObject.setImageResource(R.drawable.pato);
-        }
-        if (question.equals("pera")) {
-            imageViewObject.setImageResource(R.drawable.pera);
-        }
-        if (question.equals("puerta")) {
-            imageViewObject.setImageResource(R.drawable.puerta);
-        }
-        if (question.equals("raton")) {
-            imageViewObject.setImageResource(R.drawable.raton);
-        }
-        if (question.equals("reloj")) {
-            imageViewObject.setImageResource(R.drawable.reloj);
-        }
-        if (question.equals("rueda")) {
-            imageViewObject.setImageResource(R.drawable.rueda);
-        }
-        if (question.equals("silla")) {
-            imageViewObject.setImageResource(R.drawable.silla);
-        }
-        if (question.equals("tenedor")) {
-            imageViewObject.setImageResource(R.drawable.tenedor);
-        }
-        if (question.equals("tijera")) {
-            imageViewObject.setImageResource(R.drawable.tijera);
-        }
-        if (question.equals("toro")) {
-            imageViewObject.setImageResource(R.drawable.toro);
-        }
-        if (question.equals("vaso")) {
-            imageViewObject.setImageResource(R.drawable.vaso);
-        }
-        if (question.equals("queso")) {
-            imageViewObject.setImageResource(R.drawable.queso);
-        }
-        if (question.equals("yoyo")) {
-            imageViewObject.setImageResource(R.drawable.yoyo);
-        }
-        if (question.equals("zapato")) {
-            imageViewObject.setImageResource(R.drawable.zapato);
+        switch (question) {
+            case "bicicleta":
+                imageViewObject.setImageResource(R.drawable.bicicleta);
+                break;
+            case "botellas":
+                imageViewObject.setImageResource(R.drawable.botellas);
+                break;
+            case "burro":
+                imageViewObject.setImageResource(R.drawable.burro);
+                break;
+            case "casa":
+                imageViewObject.setImageResource(R.drawable.casa);
+                break;
+            case "cepillo":
+                imageViewObject.setImageResource(R.drawable.cepillo);
+                break;
+            case "cuna":
+                imageViewObject.setImageResource(R.drawable.cuna);
+                break;
+            case "dado":
+                imageViewObject.setImageResource(R.drawable.dado);
+                break;
+            case "dedo":
+                imageViewObject.setImageResource(R.drawable.dedo);
+                break;
+            case "domino":
+                imageViewObject.setImageResource(R.drawable.domino);
+                break;
+            case "foca":
+                imageViewObject.setImageResource(R.drawable.foca);
+                break;
+            case "fuego":
+                imageViewObject.setImageResource(R.drawable.fuego);
+                break;
+            case "gato":
+                imageViewObject.setImageResource(R.drawable.gato);
+                break;
+            case "gusano":
+                imageViewObject.setImageResource(R.drawable.gusano);
+                break;
+            case "jirafa":
+                imageViewObject.setImageResource(R.drawable.jirafa);
+                break;
+            case "lapiz":
+                imageViewObject.setImageResource(R.drawable.lapiz);
+                break;
+            case "leche":
+                imageViewObject.setImageResource(R.drawable.leche);
+                break;
+            case "loro":
+                imageViewObject.setImageResource(R.drawable.loro);
+                break;
+            case "luna":
+                imageViewObject.setImageResource(R.drawable.luna);
+                break;
+            case "mano":
+                imageViewObject.setImageResource(R.drawable.mano);
+                break;
+            case "mesa":
+                imageViewObject.setImageResource(R.drawable.mesa);
+                break;
+            case "mono":
+                imageViewObject.setImageResource(R.drawable.mono);
+                break;
+            case "muneca":
+                imageViewObject.setImageResource(R.drawable.mueca);
+                break;
+            case "nube":
+                imageViewObject.setImageResource(R.drawable.nube);
+                break;
+            case "pato":
+                imageViewObject.setImageResource(R.drawable.pato);
+                break;
+            case "pera":
+                imageViewObject.setImageResource(R.drawable.pera);
+                break;
+            case "puerta":
+                imageViewObject.setImageResource(R.drawable.puerta);
+                break;
+            case "raton":
+                imageViewObject.setImageResource(R.drawable.raton);
+                break;
+            case "reloj":
+                imageViewObject.setImageResource(R.drawable.reloj);
+                break;
+            case "rueda":
+                imageViewObject.setImageResource(R.drawable.rueda);
+                break;
+            case "silla":
+                imageViewObject.setImageResource(R.drawable.silla);
+                break;
+            case "tenedor":
+                imageViewObject.setImageResource(R.drawable.tenedor);
+                break;
+            case "tijera":
+                imageViewObject.setImageResource(R.drawable.tijera);
+                break;
+            case "toro":
+                imageViewObject.setImageResource(R.drawable.toro);
+                break;
+            case "vaso":
+                imageViewObject.setImageResource(R.drawable.vaso);
+                break;
+            case "queso":
+                imageViewObject.setImageResource(R.drawable.queso);
+                break;
+            case "yoyo":
+                imageViewObject.setImageResource(R.drawable.yoyo);
+                break;
+            case "zapato":
+                imageViewObject.setImageResource(R.drawable.zapato);
+                break;
         }
         if (question.equals("zorro")) {
             imageViewObject.setImageResource(R.drawable.zorro);
         }
 
 
-
         int i = 1;
         ImageView imgVw = null;
 
-        Iterator itr = options.iterator();
-
-        while (itr.hasNext()) {
-            String element = (String) itr.next();
+        for (String element : options) {
 
             switch (i) {
                 case 1:
@@ -421,83 +456,85 @@ public class Tp9Activity extends AppCompatActivity {
 
             }
 
-            if (element.equals("a")) {
-                imgVw.setImageResource(R.drawable.a);
-            }
-            if (element.equals("b")) {
-                imgVw.setImageResource(R.drawable.bb);
-            }
-            if (element.equals("c")) {
-                imgVw.setImageResource(R.drawable.c);
-            }
-            if (element.equals("d")) {
-                imgVw.setImageResource(R.drawable.d);
-            }
-            if (element.equals("e")) {
-                imgVw.setImageResource(R.drawable.e);
-            }
-            if (element.equals("f")) {
-                imgVw.setImageResource(R.drawable.f);
-            }
-            if (element.equals("g")) {
-                imgVw.setImageResource(R.drawable.g);
-            }
-            if (element.equals("h")) {
-                imgVw.setImageResource(R.drawable.h);
-            }
-            if (element.equals("i")) {
-                imgVw.setImageResource(R.drawable.i);
-            }
-            if (element.equals("j")) {
-                imgVw.setImageResource(R.drawable.j);
-            }
-            if (element.equals("k")) {
-                imgVw.setImageResource(R.drawable.k);
-            }
-            if (element.equals("l")) {
-                imgVw.setImageResource(R.drawable.l);
-            }
-            if (element.equals("m")) {
-                imgVw.setImageResource(R.drawable.m);
-            }
-            if (element.equals("n")) {
-                imgVw.setImageResource(R.drawable.n);
-            }
-            if (element.equals("o")) {
-                imgVw.setImageResource(R.drawable.o);
-            }
-            if (element.equals("p")) {
-                imgVw.setImageResource(R.drawable.p);
-            }
-            if (element.equals("q")) {
-                imgVw.setImageResource(R.drawable.q);
-            }
-            if (element.equals("r")) {
-                imgVw.setImageResource(R.drawable.r);
-            }
-            if (element.equals("s")) {
-                imgVw.setImageResource(R.drawable.s);
-            }
-            if (element.equals("t")) {
-                imgVw.setImageResource(R.drawable.t);
-            }
-            if (element.equals("u")) {
-                imgVw.setImageResource(R.drawable.u);
-            }
-            if (element.equals("v")) {
-                imgVw.setImageResource(R.drawable.v);
-            }
-            if (element.equals("w")) {
-                imgVw.setImageResource(R.drawable.w);
-            }
-            if (element.equals("x")) {
-                imgVw.setImageResource(R.drawable.x);
-            }
-            if (element.equals("y")) {
-                imgVw.setImageResource(R.drawable.y);
-            }
-            if (element.equals("z")) {
-                imgVw.setImageResource(R.drawable.z);
+            switch (element) {
+                case "a":
+                    imgVw.setImageResource(R.drawable.a);
+                    break;
+                case "b":
+                    imgVw.setImageResource(R.drawable.bb);
+                    break;
+                case "c":
+                    imgVw.setImageResource(R.drawable.c);
+                    break;
+                case "d":
+                    imgVw.setImageResource(R.drawable.d);
+                    break;
+                case "e":
+                    imgVw.setImageResource(R.drawable.e);
+                    break;
+                case "f":
+                    imgVw.setImageResource(R.drawable.f);
+                    break;
+                case "g":
+                    imgVw.setImageResource(R.drawable.g);
+                    break;
+                case "h":
+                    imgVw.setImageResource(R.drawable.h);
+                    break;
+                case "i":
+                    imgVw.setImageResource(R.drawable.i);
+                    break;
+                case "j":
+                    imgVw.setImageResource(R.drawable.j);
+                    break;
+                case "k":
+                    imgVw.setImageResource(R.drawable.k);
+                    break;
+                case "l":
+                    imgVw.setImageResource(R.drawable.l);
+                    break;
+                case "m":
+                    imgVw.setImageResource(R.drawable.m);
+                    break;
+                case "n":
+                    imgVw.setImageResource(R.drawable.n);
+                    break;
+                case "o":
+                    imgVw.setImageResource(R.drawable.o);
+                    break;
+                case "p":
+                    imgVw.setImageResource(R.drawable.p);
+                    break;
+                case "q":
+                    imgVw.setImageResource(R.drawable.q);
+                    break;
+                case "r":
+                    imgVw.setImageResource(R.drawable.r);
+                    break;
+                case "s":
+                    imgVw.setImageResource(R.drawable.s);
+                    break;
+                case "t":
+                    imgVw.setImageResource(R.drawable.t);
+                    break;
+                case "u":
+                    imgVw.setImageResource(R.drawable.u);
+                    break;
+                case "v":
+                    imgVw.setImageResource(R.drawable.v);
+                    break;
+                case "w":
+                    imgVw.setImageResource(R.drawable.w);
+                    break;
+                case "x":
+                    imgVw.setImageResource(R.drawable.x);
+                    break;
+                case "y":
+                    imgVw.setImageResource(R.drawable.y);
+                    break;
+                case "z":
+                    imgVw.setImageResource(R.drawable.z);
+                    break;
             }
 
             i = i + 1;
@@ -508,23 +545,13 @@ public class Tp9Activity extends AppCompatActivity {
 
     private void playQuestionSound(String question) {
 
-        if (mpCorrectChar != null) {
-            mpCorrectChar.release();
-            mpCorrectChar = null;
-        }
         if (mpObject != null) {
             mpObject.release();
             mpObject = null;
         }
 
-
         if (question.equals("bicicleta")) {
-
-            //Faltan los audios de las letras
-            //mpCorrectChar = MediaPlayer.create(this, R.raw.letra_b);
-
             mpObject = MediaPlayer.create(this, R.raw.bicicleta);
-
         }
         if (question.equals("botellas")) {
             mpObject = MediaPlayer.create(this, R.raw.botellas);
@@ -638,54 +665,67 @@ public class Tp9Activity extends AppCompatActivity {
             mpObject = MediaPlayer.create(this, R.raw.zorro);
         }
 
-        mpObject.start();
+        try {
+            mpObject.start();
+        } catch (Exception e) {
+            Log.d("TAGGG", e.getMessage());
+        }
     }
 
     private String generateQuestion() {
 
-        String[] list = new String[]{"bicicleta", "botellas", "burro", "casa", "cepillo", "cuna"
-                , "dado", "dedo", "domino", "foca", "fuego", "gato", "gusano", "jirafa", "lapiz",
-                "leche", "loro", "luna", "mano", "mesa", "mono", "muneca", "nube", "pato", "pera",
-                "puerta", "raton", "reloj", "rueda", "silla", "tenedor", "tijera", "toro", "vaso",
-                "queso", "yoyo", "zapato", "zorro"};
+        if (objects == null) {
+            String[] list = new String[]{"bicicleta", "botellas", "burro", "casa", "cepillo", "cuna"
+                    , "dado", "dedo", "domino", "foca", "fuego", "gato", "gusano", "jirafa", "lapiz",
+                    "leche", "loro", "luna", "mano", "mesa", "mono", "muneca", "nube", "pato", "pera",
+                    "puerta", "raton", "reloj", "rueda", "silla", "tenedor", "tijera", "toro", "vaso",
+                    "queso", "yoyo", "zapato", "zorro"};
 
-        ArrayList<String> objects = new ArrayList<>();
-        objects.addAll(Arrays.asList(list));
+            objects = new ArrayList<>();
+            objects.addAll(Arrays.asList(list));
+        }
 
         Random r = new Random();
-
         return objects.get(r.nextInt(37));
 
     }
 
     private void startAgain() {
 
-        //Espero 3 segundos------------------
-        Runnable r = new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                //Reseteo los colores
-                imageViewOp1.setColorFilter(null);
-                imageViewOp2.setColorFilter(null);
-                imageViewOp3.setColorFilter(null);
-                imageViewOp4.setColorFilter(null);
-                imageViewOp5.setColorFilter(null);
-
-                //Recargo los componentes
                 question = generateQuestion();
-
-                playQuestionSound(question);
-
-                ArrayList<String> options = generateOptionsArray();
-
-                configImages(options);
+                Handler r = new Handler();
+                r.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        final ArrayList<String> options2 = generateOptionsArray();
+                        playQuestionSound(question);
+                        configImages(options2);
+                        resetColorsAndClicks();
+                    }
+                }, 3000);
 
             }
-        };
+        }).run();
 
-        Handler h = new Handler();
-        h.postDelayed(r, 3000);
-        //-----------------------------------
+
+    }
+
+    private void resetColorsAndClicks() {
+        //Reseteo los colores
+        imageViewOp1.setColorFilter(null);
+        imageViewOp2.setColorFilter(null);
+        imageViewOp3.setColorFilter(null);
+        imageViewOp4.setColorFilter(null);
+        imageViewOp5.setColorFilter(null);
+
+        imageViewOp1.setClickable(true);
+        imageViewOp2.setClickable(true);
+        imageViewOp3.setClickable(true);
+        imageViewOp4.setClickable(true);
+        imageViewOp5.setClickable(true);
 
 
     }
@@ -700,7 +740,16 @@ public class Tp9Activity extends AppCompatActivity {
             mpCorrectAnswer.seekTo(0);
         } else {
             mpCorrectAnswer.start();
+            Handler r = new Handler();
+            r.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mpCorrectChar.start();
+                }
+            }, 200);
+
         }
+
     }
 
     private void playWrongAnswer() {
@@ -711,6 +760,13 @@ public class Tp9Activity extends AppCompatActivity {
             mpWrongAnswer.seekTo(0);
         } else {
             mpWrongAnswer.start();
+            Handler r = new Handler();
+            r.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    playQuestionSound(question);
+                }
+            }, 200);
         }
 
     }
@@ -758,11 +814,13 @@ public class Tp9Activity extends AppCompatActivity {
             mpObject = null;
         }
 
+
+        /*
         if (mpCorrectChar != null) {
             mpCorrectChar.release();
             mpCorrectChar = null;
         }
-
+*/
     }
 
     @Override
