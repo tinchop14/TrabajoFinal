@@ -734,7 +734,6 @@ public class Tp9Activity extends AppCompatActivity {
 
     private void playCorrectAnswer() {
 
-
         if (mpCorrectAnswer == null) {
             mpCorrectAnswer = MediaPlayer.create(this, R.raw.bien);
         }
@@ -817,12 +816,6 @@ public class Tp9Activity extends AppCompatActivity {
         }
 
 
-        /*
-        if (mpCorrectChar != null) {
-            mpCorrectChar.release();
-            mpCorrectChar = null;
-        }
-*/
     }
 
     @Override

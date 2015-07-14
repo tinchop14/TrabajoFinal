@@ -5,9 +5,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * Created by tincho on 22/06/15.
- */
 public class ImageOnTouchListener implements View.OnTouchListener {
 
 
@@ -26,26 +23,27 @@ public class ImageOnTouchListener implements View.OnTouchListener {
         // Instantiates the drag shadow builder.
         View.DragShadowBuilder myShadow=null;
 
-        Log.d("TAGGG","Ontouch"+tag);
 
-        if (tag.equals(IMAGE_TAG_1)) {
-            myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number1));
-        }
-        else if(tag.equals(IMAGE_TAG_2)){
-            myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number2));
+        switch (tag) {
+            case IMAGE_TAG_1:
+                myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number1));
+                break;
+            case IMAGE_TAG_2:
+                myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number2));
 
-        }
-        else if(tag.equals(IMAGE_TAG_3)){
-            myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number3));
+                break;
+            case IMAGE_TAG_3:
+                myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number3));
 
-        }
-        else if(tag.equals(IMAGE_TAG_4)){
-            myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number4));
+                break;
+            case IMAGE_TAG_4:
+                myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number4));
 
-        }
-        else if(tag.equals(IMAGE_TAG_5)){
-            myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number5));
+                break;
+            case IMAGE_TAG_5:
+                myShadow = new View.DragShadowBuilder(view.findViewById(R.id.number5));
 
+                break;
         }
 
 
