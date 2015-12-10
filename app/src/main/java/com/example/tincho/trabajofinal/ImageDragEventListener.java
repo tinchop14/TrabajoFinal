@@ -26,8 +26,6 @@ public class ImageDragEventListener implements View.OnDragListener {
                 return false;
 
             case DragEvent.ACTION_DRAG_LOCATION:
-
-                // Ignore the event
                 return true;
 
             case DragEvent.ACTION_DRAG_EXITED:

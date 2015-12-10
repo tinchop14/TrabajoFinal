@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView number4ImageView;
     private ImageView number5ImageView;
 
+    private ImageView overlapImageView;
+
     private MediaPlayer mpCorrectNumber;
     private MediaPlayer mp1 = null;
     private MediaPlayer mp2 = null;
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
         number3ImageView = (ImageView) findViewById(R.id.number3);
         number4ImageView = (ImageView) findViewById(R.id.number4);
         number5ImageView = (ImageView) findViewById(R.id.number5);
+        overlapImageView = (ImageView) findViewById(R.id.overlapImage);
+        final ImageView starImageView = (ImageView) findViewById(R.id.starImage);
+        overlapImageView.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+
 
         number1ImageView.setTag(IMAGE_TAG_1);
         number2ImageView.setTag(IMAGE_TAG_2);
@@ -79,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         playQuestionSound(option);
 
-        ImageView starImageView = (ImageView) findViewById(R.id.starImage);
+
         starImageView.setImageResource(R.drawable.estrella);
 
         //Drag listener
@@ -87,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onDrag(View view, DragEvent dragEvent) {
                 switch (dragEvent.getAction()) {
+
 
                     case DragEvent.ACTION_DRAG_STARTED:
                         break;
@@ -103,8 +110,10 @@ public class MainActivity extends AppCompatActivity {
                             case 1:
                                 if (dragEvent.getClipData().getItemAt(0).getText().equals("IMAGE_TAG_1")) {
                                     correct = true;
-                                    number1ImageView.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
+                                    overlapImageView.setVisibility(View.VISIBLE);
+                                    number1ImageView.setImageDrawable(null);
                                     Log.d("TAGGG", "CORRECTA");
+
                                 } else {
                                     Log.d("TAGGG", "INCORRECTA");
                                 }
@@ -112,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
                             case 2:
                                 if (dragEvent.getClipData().getItemAt(0).getText().equals("IMAGE_TAG_2")) {
                                     correct = true;
-                                    number2ImageView.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
-
+                                    overlapImageView.setVisibility(View.VISIBLE);
+                                    number2ImageView.setImageDrawable(null);
                                     Log.d("TAGGG", "CORRECTA");
                                 } else {
                                     Log.d("TAGGG", "INCORRECTA");
@@ -122,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
                             case 3:
                                 if (dragEvent.getClipData().getItemAt(0).getText().equals("IMAGE_TAG_3")) {
                                     correct = true;
-                                    number3ImageView.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
-
+                                    overlapImageView.setVisibility(View.VISIBLE);
+                                    number3ImageView.setImageDrawable(null);
                                     Log.d("TAGGG", "CORRECTA");
                                 } else {
                                     Log.d("TAGGG", "INCORRECTA");
@@ -132,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
                             case 4:
                                 if (dragEvent.getClipData().getItemAt(0).getText().equals("IMAGE_TAG_4")) {
                                     correct = true;
-                                    number4ImageView.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
-
+                                    overlapImageView.setVisibility(View.VISIBLE);
+                                    number4ImageView.setImageDrawable(null);
                                     Log.d("TAGGG", "CORRECTA");
                                 } else {
                                     Log.d("TAGGG", "INCORRECTA");
@@ -142,8 +151,8 @@ public class MainActivity extends AppCompatActivity {
                             case 5:
                                 if (dragEvent.getClipData().getItemAt(0).getText().equals("IMAGE_TAG_5")) {
                                     correct = true;
-                                    number5ImageView.setColorFilter(Color.parseColor("#00E676"), PorterDuff.Mode.MULTIPLY);
-
+                                    overlapImageView.setVisibility(View.VISIBLE);
+                                    number5ImageView.setImageDrawable(null);
                                     Log.d("TAGGG", "CORRECTA");
                                 } else {
                                     Log.d("TAGGG", "INCORRECTA");
@@ -163,11 +172,13 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     //Reseteo los colores
+                                    overlapImageView.setVisibility(View.INVISIBLE);
                                     number1ImageView.setColorFilter(null);
                                     number2ImageView.setColorFilter(null);
                                     number3ImageView.setColorFilter(null);
                                     number4ImageView.setColorFilter(null);
                                     number5ImageView.setColorFilter(null);
+
 
                                     //Reconfiguro todos
                                     startAgain();
@@ -211,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void startAgain() {
         //Recargo los componentes
         option = generateQuestion();
@@ -228,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                 aoptions = generateOptionsArray(5, 6, 7);
                 //Guardo la posición de la correcta
                 correctIndex = (aoptions.indexOf(5) + 1);
-                Log.d("TAGGG", "UNICACION: " + String.valueOf(correctIndex));
+                Log.d("TAGGG", "UBICACION: " + String.valueOf(correctIndex));
                 break;
             case 2:
                 //Opciones: 6,7,8 y dos aleatorias
@@ -281,6 +293,48 @@ public class MainActivity extends AppCompatActivity {
                 correctIndex = aoptions.indexOf(15) + 1;
                 break;
         }
+
+        /////////////////////////////////////
+        //Configuro la imagen que se va a superponer a la estrella
+        switch (option) {
+            case 0:
+                break;
+            case 1:
+                overlapImageView.setImageResource(R.drawable.cinco);
+                break;
+            case 2:
+                overlapImageView.setImageResource(R.drawable.seis);
+                break;
+            case 3:
+                overlapImageView.setImageResource(R.drawable.siete);
+                break;
+            case 4:
+                overlapImageView.setImageResource(R.drawable.ocho);
+                break;
+            case 5:
+                overlapImageView.setImageResource(R.drawable.nueve);
+                break;
+            case 6:
+                overlapImageView.setImageResource(R.drawable.diez);
+                break;
+            case 7:
+                overlapImageView.setImageResource(R.drawable.once);
+                break;
+            case 8:
+                overlapImageView.setImageResource(R.drawable.doce);
+                break;
+            case 9:
+                overlapImageView.setImageResource(R.drawable.trece);
+                break;
+            case 10:
+                overlapImageView.setImageResource(R.drawable.catorce);
+                break;
+            case 11:
+                overlapImageView.setImageResource(R.drawable.quince);
+                break;
+
+        }
+        /////////////////////////////////////////////////////////
 
         Iterator itr = aoptions.iterator();
         int i = 1;
